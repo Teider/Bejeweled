@@ -11,6 +11,10 @@ Config::Config(uint32_t flags) {
   }
 }
 
+Config::~Config(){
+  SDL_Quit();
+}
+
 } // namespace graphics
 } // namespace bejeweled
 
