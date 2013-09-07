@@ -1,7 +1,7 @@
 #include "core/game.h"
 
 int main(int argc, char **argv) {
-	Bejeweled::Game game;
+	bejeweled::Game game;
 	game.loop();
 }
 

@@ -2,7 +2,7 @@
 
 #include "game.h"
 
-namespace Bejeweled {
+namespace bejeweled {
 
 void Game::loop() {
 	while(true) {
@@ -11,5 +11,5 @@ void Game::loop() {
 	}
 }
 
-}
+} // namespace bejeweled
 
