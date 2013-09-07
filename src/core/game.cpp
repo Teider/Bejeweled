@@ -4,9 +4,9 @@
 
 namespace Bejeweled {
 
-Game::loop() {
+void Game::loop() {
 	while(true) {
-		cout << "Teste" << std::endl; 
+		std::cout << "Teste" << std::endl; 
 		break;
 	}
 }

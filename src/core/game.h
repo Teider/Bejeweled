@@ -3,10 +3,10 @@
 
 namespace Bejeweled {
 
-public class Game {
-	public:
-		void loop();
-}
+class Game {
+public:
+  void loop();
+};
 
 }
 
