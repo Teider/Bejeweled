@@ -7,8 +7,12 @@ namespace bejeweled {
 namespace graphics {
 
 class Config {
-  public:
-    Config(uint32_t flags);
+public:
+  Config(uint32_t flags);
+
+protected:
+  ~Config();
+ 
 };
 
 } // namespace graphics
