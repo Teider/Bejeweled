@@ -5,19 +5,20 @@
 #include <cstdint>
 #include <memory>
 
-#include "graphics/Window.h"
+#include <SDL2/SDL.h>
 
-struct SDL_Window;
+#include "graphics/Window.h"
 
 namespace bejeweled {
 namespace graphics {
 
 class SDLWindow : public Window {
 public:
+  typedef std::unique_ptr<SDL_Window, decltype(SDL_DestroyWindow)*> SDL_WindowPtr;
   SDLWindow(const std::string &name, int x, int y, int w, int h, uint32_t flags);
 
 private:
-  std::unique_ptr<SDL_Window> ptr_;
+  SDL_WindowPtr ptr_;
 
 };
 

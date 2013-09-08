@@ -1,6 +1,7 @@
-#include <SLD2/SDL.h>
+#include <stdexcept>
+#include <SDL2/SDL.h>
 
-#include "graphics/config.h"
+#include "graphics/Config.h"
 
 namespace bejeweled {
 namespace graphics {
