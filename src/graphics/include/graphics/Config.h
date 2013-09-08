@@ -8,9 +8,8 @@ namespace graphics {
 
 class Config {
 public:
+  Config();
   Config(uint32_t flags);
-
-protected:
   ~Config();
  
 };

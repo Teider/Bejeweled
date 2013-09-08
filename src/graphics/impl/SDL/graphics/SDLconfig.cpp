@@ -12,6 +12,10 @@ Config::Config(uint32_t flags) {
   }
 }
 
+Config::Config() {
+  Config(SDL_INIT_EVERYTHING);
+}
+
 Config::~Config(){
   SDL_Quit();
 }
