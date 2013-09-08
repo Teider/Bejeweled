@@ -7,12 +7,12 @@
 
 #include "graphics/Window.h"
 
-class SDL_Window;
+struct SDL_Window;
 
 namespace bejeweled {
 namespace graphics {
 
-class SDLWindow : Window {
+class SDLWindow : public Window {
 public:
   SDLWindow(const std::string &name, int x, int y, int w, int h, uint32_t flags);
 
