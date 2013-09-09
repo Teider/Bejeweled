@@ -8,9 +8,12 @@
 namespace bejeweled {
 namespace graphics {
 
+class Renderer;
+
 class Window {
 public:
   virtual ~Window() {};
+  virtual std::unique_ptr<Renderer> CreateRenderer(int index, uint32_t flags) = 0;
 
 protected:
   Window() {};
