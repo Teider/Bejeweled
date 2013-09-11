@@ -2,8 +2,9 @@
 #include <string>
 #include <memory>
 
-#include "graphics/Window.h"
 #include "graphics/Config.h"
+#include "graphics/Window.h"
+#include "graphics/Renderer.h"
 
 #include "game.h"
 
@@ -11,7 +12,8 @@ namespace bejeweled {
 
 void Game::loop() {
 	graphics::Config config;
-	std::unique_ptr<graphics::Window> window{graphics::WindowFactory("bejeweled", 10, 10, 300, 300, 0)};
+	auto window = graphics::WindowFactory("bejeweled", 10, 10, 300, 300, 0);
+  auto renderer = window->CreateRenderer(0, 0);
 	while(true) {
 		std::cout << "Press something to continue: "; 
 		std::cin.get();
