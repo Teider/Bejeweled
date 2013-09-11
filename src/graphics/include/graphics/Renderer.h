@@ -1,9 +1,6 @@
 #ifndef BEJEWELED_GRAPHICS_RENDERER_H_
 #define BEJEWELED_GRAPHICS_RENDERER_H_
 
-#include <cstdint>
-#include <memory>
-
 namespace bejeweled {
 namespace graphics {
 
