@@ -11,7 +11,7 @@
 namespace bejeweled {
 
 void Game::loop() {
-	graphics::Config config;
+	auto config(graphics::Config::Flags::kInitEverything);
 	auto window = graphics::WindowFactory("bejeweled", 10, 10, 300, 300, 0);
   auto renderer = window->CreateRenderer(0, 0);
 	while(true) {
