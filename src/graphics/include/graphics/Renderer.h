@@ -1,12 +1,18 @@
 #ifndef BEJEWELED_GRAPHICS_RENDERER_H_
 #define BEJEWELED_GRAPHICS_RENDERER_H_
 
+#include <memory>
+
 namespace bejeweled {
 namespace graphics {
+
+class Surface;
+class Texture;
 
 class Renderer {
 public:
   virtual ~Renderer() {};
+  virtual std::unique_ptr<Texture> CreateTextureFromSurface(Surface *surface) = 0;
 
 protected:
   Renderer() {};

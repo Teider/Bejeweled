@@ -11,6 +11,9 @@ std::unique_ptr<Surface> SurfaceFactory(std::string name) {
   return std::unique_ptr<Surface>(new SDLSurface(SDL_LoadBMP(name.c_str())));
 }
 
+SDL_Surface* SDLSurface::GetHandle() {
+  return ptr_.get();
+}
 
 } // namespace graphics
 } // namespace bejeweled

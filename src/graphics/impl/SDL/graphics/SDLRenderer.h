@@ -17,6 +17,8 @@ public:
 
   SDLRenderer(SDL_Window *win, int index, int32_t flags);
 
+  virtual std::unique_ptr<Texture> CreateTextureFromSurface(Surface *surface);
+
 private:
   SDL_RendererPtr ptr_;
 

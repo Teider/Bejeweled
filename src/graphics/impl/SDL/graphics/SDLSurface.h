@@ -17,6 +17,7 @@ public:
 
   SDLSurface(SDL_Surface* ptr);
 
+  SDL_Surface* GetHandle();
 private:
   SDL_SurfacePtr ptr_;
 
