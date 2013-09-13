@@ -15,6 +15,10 @@ std::unique_ptr<Texture> SDLRenderer::CreateTextureFromSurface(Surface *surface)
   return std::unique_ptr<Texture>(new SDLTexture(texture_ptr));
 }
 
+void SDLRenderer::RenderClear() {
+  SDL_RenderClear(ptr_.get());
+}
+
 } // namespace graphics
 } // namespace bejeweled
 

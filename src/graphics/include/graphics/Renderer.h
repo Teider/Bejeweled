@@ -8,11 +8,14 @@ namespace graphics {
 
 class Surface;
 class Texture;
+class Dimension;
 
 class Renderer {
 public:
   virtual ~Renderer() {};
   virtual std::unique_ptr<Texture> CreateTextureFromSurface(Surface *surface) = 0;
+  virtual void RenderClear() = 0;
+  //virtual void RenderCopy(Texture *texture, const Dimension &source, const Dimension &detination) = 0;
 
 protected:
   Renderer() {};
