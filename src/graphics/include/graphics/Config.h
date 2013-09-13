@@ -17,15 +17,18 @@ public:
 	kInitEverything
   };
 
-  Config();
-  Config(std::set<Flags> flags);
-  ~Config();
-private:
-  //FIXME: remove this from here. Config should be an interface with pure virtual methods,
-  //      the impl should be a subclass, and this map should only be there.
-  static const std::map<Flags, uint32_t> convert_;
+  virtual ~Config() {};
 
+protected:
+  Config() {};
+
+private:
+  Config(const Config&) = delete;
+  Config& operator=(const Config&) = delete;
+  
 };
+
+std::unique_ptr<Config> ConfigFactory(Config::Flags flags);
 
 } // namespace graphics
 } // namespace bejeweled
