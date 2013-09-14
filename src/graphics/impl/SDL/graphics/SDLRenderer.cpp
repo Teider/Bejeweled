@@ -20,10 +20,12 @@ void SDLRenderer::RenderClear() {
   SDL_RenderClear(ptr_.get());
 }
 
-void SDLRenderer::RenderCopy(Texture *texture, Dimension *source, Dimension *detination) {
+void SDLRenderer::RenderCopy(Texture *texture, Dimension *source, Dimension *destination) {
   auto texture_ptr = dynamic_cast<SDLTexture*>(texture)->GetHandle();
   auto source_ptr = dynamic_cast<SDLDimension*>(source)->GetHandle();
-  auto destination_ptr = dynamic_cast<SDLDimension*>(detination)->GetHandle();
+  if (source == nullptr) source_ptr = NULL;
+  auto destination_ptr = dynamic_cast<SDLDimension*>(destination)->GetHandle();
+  if (destination == nullptr) destination_ptr = NULL;
   SDL_RenderCopy(ptr_.get(), texture_ptr,source_ptr, destination_ptr);
 }
 

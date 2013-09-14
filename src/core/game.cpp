@@ -16,9 +16,9 @@ void Game::loop() {
 	auto config(graphics::Config::Flags::kInitEverything);
 	auto window = graphics::WindowFactory("bejeweled", 10, 10, 300, 300, 0);
   auto renderer = window->CreateRenderer(0, 0);
-  auto surface = graphics::SurfaceBMPFactory("~/repos/Bejeweled/test.bmp");
+  auto surface = graphics::SurfaceBMPFactory("resources/sprites/sprites.bmp");
   auto texture = renderer->CreateTextureFromSurface(surface.get());
-  renderer->RenderClear();
+  //renderer->RenderClear();
   renderer->RenderCopy(texture.get(), nullptr, nullptr);
   renderer->RenderPresent();
 	while(true) {
