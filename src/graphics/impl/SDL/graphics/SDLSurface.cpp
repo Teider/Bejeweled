@@ -6,7 +6,7 @@ namespace graphics {
 SDLSurface::SDLSurface(SDL_Surface *ptr)
 	: ptr_(ptr, SDL_FreeSurface) {}
   
-std::unique_ptr<Surface> SurfaceFactory(std::string name) {
+std::unique_ptr<Surface> SurfaceBMPFactory(std::string name) {
   //FIXME: there should be a check for errors here
   return std::unique_ptr<Surface>(new SDLSurface(SDL_LoadBMP(name.c_str())));
 }
