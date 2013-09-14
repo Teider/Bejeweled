@@ -18,6 +18,9 @@ void Game::loop() {
   auto renderer = window->CreateRenderer(0, 0);
   auto surface = graphics::SurfaceBMPFactory("~/repos/Bejeweled/test.bmp");
   auto texture = renderer->CreateTextureFromSurface(surface.get());
+  renderer->RenderClear();
+  renderer->RenderCopy(texture.get(), nullptr, nullptr);
+  renderer->RenderPresent();
 	while(true) {
 		std::cout << "Press something to continue: "; 
 		std::cin.get();

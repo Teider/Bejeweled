@@ -19,6 +19,8 @@ public:
 
   virtual std::unique_ptr<Texture> CreateTextureFromSurface(Surface *surface);
   virtual void RenderClear();
+  virtual void RenderCopy(Texture *texture, Dimension *source, Dimension *detination);
+  virtual void RenderPresent();
 
 private:
   SDL_RendererPtr ptr_;

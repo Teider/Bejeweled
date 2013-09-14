@@ -10,5 +10,9 @@ SDLDimension::SDLDimension(int x, int y, int w, int h) {
   rect.h = h;
 }
 
+SDL_Rect* SDLDimension::GetHandle() {
+  return &rect;
+}
+
 } // namespace graphics
 } // namespace bejeweled

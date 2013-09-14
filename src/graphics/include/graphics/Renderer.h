@@ -15,7 +15,8 @@ public:
   virtual ~Renderer() {};
   virtual std::unique_ptr<Texture> CreateTextureFromSurface(Surface *surface) = 0;
   virtual void RenderClear() = 0;
-  //virtual void RenderCopy(Texture *texture, const Dimension &source, const Dimension &detination) = 0;
+  virtual void RenderCopy(Texture *texture, Dimension *source, Dimension *detination) = 0;
+  virtual void RenderPresent() = 0;
 
 protected:
   Renderer() {};
