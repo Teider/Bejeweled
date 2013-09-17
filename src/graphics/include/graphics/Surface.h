@@ -4,23 +4,25 @@
 #include <string>
 #include <memory>
 
+#include <SDL2/SDL.h> 
+
 namespace bejeweled {
 namespace graphics {
 
 class Surface {
 public:
-  virtual ~Surface() {};
+  typedef std::unique_ptr<SDL_Surface, decltype(SDL_FreeSurface)*> SDL_SurfacePtr;
 
-protected:
-  Surface() {};
+  Surface(SDL_Surface* ptr);
+
+  SDL_Surface* GetHandle();
 
 private:
-  Surface(const Surface&) = delete;
-  Surface& operator=(const Surface&) = delete;
+  SDL_SurfacePtr ptr_;
 
 };
 
-std::unique_ptr<Surface> SurfaceBMPFactory(std::string name);
+Surface SurfaceBMPFactory(std::string name);
 
 } // namespace graphics
 } // namespace bejeweled

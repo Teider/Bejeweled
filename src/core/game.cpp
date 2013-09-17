@@ -14,13 +14,13 @@ namespace bejeweled {
 
 void Game::loop() {
 	auto config(graphics::Config::Flags::kInitEverything);
-	auto window = graphics::WindowFactory("bejeweled", 10, 10, 300, 300, 0);
-  auto renderer = window->CreateRenderer(0, 0);
+	auto window = graphics::Window("bejeweled", 10, 10, 300, 300, 0);
+  auto renderer = window.CreateRenderer(0, 0);
   auto surface = graphics::SurfaceBMPFactory("resources/sprites/sprites.bmp");
-  auto texture = renderer->CreateTextureFromSurface(surface.get());
+  auto texture = renderer.CreateTextureFromSurface(surface);
   //renderer->RenderClear();
-  renderer->RenderCopy(texture.get(), nullptr, nullptr);
-  renderer->RenderPresent();
+  renderer.RenderCopy(texture, nullptr, nullptr);
+  renderer.RenderPresent();
 	while(true) {
 		std::cout << "Press something to continue: "; 
 		std::cin.get();

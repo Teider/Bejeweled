@@ -1,20 +1,22 @@
 #ifndef BEJEWELED_GRAPHICS_TEXTURE_H_
 #define BEJEWELED_GRAPHICS_TEXTURE_H_
 
+#include <memory>
+
+#include <SDL2/SDL.h> 
+
 namespace bejeweled {
 namespace graphics {
 
 class Texture {
 public:
-  virtual ~Texture() {};
+  typedef std::unique_ptr<SDL_Texture, decltype(SDL_DestroyTexture)*> SDL_TexturePtr;
 
-protected:
-  Texture() {};
+  Texture(SDL_Texture* ptr);
+  SDL_Texture* GetHandle();
 
 private:
-  Texture(const Texture&) = delete;
-  Texture& operator=(const Texture&) = delete;
-
+  SDL_TexturePtr ptr_;
 };
 
 } // namespace graphics

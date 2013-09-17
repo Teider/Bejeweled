@@ -4,6 +4,8 @@
 #include <set>
 #include <map>
 
+#include <SDL2/SDL.h> 
+
 namespace bejeweled {
 namespace graphics {
 

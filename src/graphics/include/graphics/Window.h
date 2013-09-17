@@ -5,6 +5,8 @@
 #include <cstdint>
 #include <memory>
 
+#include <SDL2/SDL.h> 
+
 namespace bejeweled {
 namespace graphics {
 
@@ -12,19 +14,14 @@ class Renderer;
 
 class Window {
 public:
-  virtual ~Window() {};
-  virtual std::unique_ptr<Renderer> CreateRenderer(int index, uint32_t flags) = 0;
+  typedef std::unique_ptr<SDL_Window, decltype(SDL_DestroyWindow)*> SDL_WindowPtr;
 
-protected:
-  Window() {};
+  Window(const std::string &name, int x, int y, int w, int h, uint32_t flags);
+  Renderer CreateRenderer(int index, uint32_t flags);
 
 private:
-  Window(const Window&) = delete;
-  Window& operator=(const Window&) = delete;
-
+  SDL_WindowPtr ptr_;
 };
-
-std::unique_ptr<Window> WindowFactory(std::string name, int x, int y, int w, int h, uint32_t flags);
 
 } // namespace graphics
 } // namespace bejeweled
