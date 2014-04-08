@@ -9,7 +9,7 @@ Texture::Texture(SDL_Texture *ptr)
 SDL_Texture* Texture::GetHandle() {
   return ptr_.get();
 }
-  
+
 } // namespace graphics
 } // namespace bejeweled
 

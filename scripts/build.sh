@@ -3,10 +3,8 @@
 export CC=/usr/bin/clang
 export CXX=/usr/bin/clang++
 
-rm -rf build
-mkdir build
+pushd
 cd build
 cmake ..
-make
-
-cd ..
+make -j4
+popd

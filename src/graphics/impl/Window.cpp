@@ -1,5 +1,6 @@
 #include "graphics/Window.h"
 #include "graphics/Renderer.h"
+#include "graphics/Surface.h"
 
 namespace bejeweled {
 namespace graphics {
@@ -9,7 +10,7 @@ Window::Window(const std::string &name, int x, int y, int w, int h, uint32_t fla
   
 
 Renderer Window::CreateRenderer(int index, uint32_t flags) {
-  return Renderer(ptr_.get(), index, flags);
+  return Renderer{ptr_.get(), index, flags};
 }
 
 } // namespace graphics

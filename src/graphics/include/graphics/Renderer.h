@@ -15,7 +15,7 @@ class Renderer {
 public:
   typedef std::unique_ptr<SDL_Renderer, decltype(SDL_DestroyRenderer)*> SDL_RendererPtr;
 
-  Renderer(SDL_Window *win, int index, int32_t flags);
+  Renderer(SDL_Window *win, int index, uint32_t flags);
 
   Texture CreateTextureFromSurface(Surface &surface);
   void RenderClear();

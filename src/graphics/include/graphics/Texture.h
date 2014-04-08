@@ -13,6 +13,7 @@ public:
   typedef std::unique_ptr<SDL_Texture, decltype(SDL_DestroyTexture)*> SDL_TexturePtr;
 
   Texture(SDL_Texture* ptr);
+
   SDL_Texture* GetHandle();
 
 private:

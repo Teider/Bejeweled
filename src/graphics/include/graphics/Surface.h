@@ -13,16 +13,23 @@ class Surface {
 public:
   typedef std::unique_ptr<SDL_Surface, decltype(SDL_FreeSurface)*> SDL_SurfacePtr;
 
-  Surface(SDL_Surface* ptr);
+  explicit Surface(SDL_Surface* ptr);
+
+  Surface(const Surface&) = delete;
+  Surface(Surface&&);
+  Surface& operator=(Surface&&);
 
   SDL_Surface* GetHandle();
+
+  void BlitSurface(const SDL_Rect* srcrect, Surface& dst, SDL_Rect* dstrect);
+
+  static Surface SurfaceBMPFactory(std::string name);
 
 private:
   SDL_SurfacePtr ptr_;
 
 };
 
-Surface SurfaceBMPFactory(std::string name);
 
 } // namespace graphics
 } // namespace bejeweled

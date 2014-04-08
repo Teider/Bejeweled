@@ -1,10 +1,9 @@
 #ifndef BEJEWELED_GRAPHICS_CONFIG_H_
 #define BEJEWELED_GRAPHICS_CONFIG_H_
 
-#include <set>
-#include <map>
-
 #include <SDL2/SDL.h> 
+
+#include <memory>
 
 namespace bejeweled {
 namespace graphics {
@@ -19,10 +18,11 @@ public:
 	kInitEverything
   };
 
-  virtual ~Config() {};
-
-protected:
   Config() {};
+
+  virtual ~Config() {
+    SDL_Quit();
+  }
 
 private:
   Config(const Config&) = delete;
