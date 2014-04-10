@@ -19,7 +19,9 @@ public:
   Surface(Surface&&);
   Surface& operator=(Surface&&);
 
-  SDL_Surface* GetHandle();
+  operator SDL_Surface*() {
+    return ptr_.get();
+  }
 
   static Surface SurfaceBMPFactory(std::string name);
 

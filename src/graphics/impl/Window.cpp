@@ -10,7 +10,7 @@ Window::Window(const std::string &name, int x, int y, int w, int h, uint32_t fla
   
 
 Renderer Window::CreateRenderer(int index, uint32_t flags) {
-  return Renderer{ptr_.get(), index, flags};
+  return Renderer{*this, index, flags};
 }
 
 } // namespace graphics

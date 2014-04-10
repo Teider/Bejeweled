@@ -27,6 +27,10 @@ public:
   void RenderCopy(Texture &texture, util::Rectangle source, util::Rectangle detination);
   void RenderPresent();
 
+  operator SDL_Renderer*() {
+    return ptr_.get();
+  }
+
 private:
   SDL_RendererPtr ptr_;
 

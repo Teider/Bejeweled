@@ -19,6 +19,10 @@ public:
   Window(const std::string &name, int x, int y, int w, int h, uint32_t flags);
   Renderer CreateRenderer(int index, uint32_t flags);
 
+  operator SDL_Window*() {
+    return ptr_.get();
+  }
+
 private:
   SDL_WindowPtr ptr_;
 };

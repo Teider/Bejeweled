@@ -14,7 +14,9 @@ public:
 
   Texture(SDL_Texture* ptr);
 
-  SDL_Texture* GetHandle();
+  operator SDL_Texture*() {
+    return ptr_.get();
+  }
 
 private:
   SDL_TexturePtr ptr_;
