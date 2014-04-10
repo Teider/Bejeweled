@@ -2,7 +2,7 @@
 
 #include "graphics/Surface.h"
 #include "graphics/Texture.h"
-#include "util/log.h"
+#include "util/Log.h"
 #include "util/Rectangle.h"
 
 
