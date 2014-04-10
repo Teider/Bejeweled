@@ -21,8 +21,6 @@ public:
 
   SDL_Surface* GetHandle();
 
-  void BlitSurface(const SDL_Rect* srcrect, Surface& dst, SDL_Rect* dstrect);
-
   static Surface SurfaceBMPFactory(std::string name);
 
 private:

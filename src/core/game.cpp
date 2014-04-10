@@ -9,6 +9,7 @@
 #include "graphics/Renderer.h"
 #include "graphics/Surface.h"
 #include "graphics/Texture.h"
+#include "util/Rectangle.h"
 
 #include "game.h"
 
@@ -21,7 +22,7 @@ void Game::loop() {
   auto surface = graphics::Surface::SurfaceBMPFactory("resources/sprites/sprites.bmp");
   auto texture = renderer.CreateTextureFromSurface(surface);
   renderer.RenderClear();
-  renderer.RenderCopy(texture, nullptr, nullptr);
+  renderer.RenderCopy(texture, util::Rectangle(), util::Rectangle());
   renderer.RenderPresent();
 	while(true) {
 		std::cout << "Press something to continue: "; 

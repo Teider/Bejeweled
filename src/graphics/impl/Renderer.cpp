@@ -3,6 +3,7 @@
 #include "graphics/Surface.h"
 #include "graphics/Texture.h"
 #include "util/log.h"
+#include "util/Rectangle.h"
 
 
 namespace bejeweled {
@@ -20,8 +21,8 @@ void Renderer::RenderClear() {
   LogSDL(SDL_RenderClear(ptr_.get()));
 }
 
-void Renderer::RenderCopy(Texture &texture, SDL_Rect *source, SDL_Rect *destination) {
-  LogSDL(SDL_RenderCopy(ptr_.get(), texture.GetHandle() ,source, destination));
+void Renderer::RenderCopy(Texture &texture, util::Rectangle source, util::Rectangle destination) {
+  LogSDL(SDL_RenderCopy(ptr_.get(), texture.GetHandle() ,source , destination));
 }
 
 void Renderer::RenderPresent() {

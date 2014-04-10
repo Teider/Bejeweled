@@ -6,6 +6,11 @@
 #include <SDL2/SDL.h> 
 
 namespace bejeweled {
+
+namespace util {
+class Rectangle;
+}
+
 namespace graphics {
 
 class Surface;
@@ -19,7 +24,7 @@ public:
 
   Texture CreateTextureFromSurface(Surface &surface);
   void RenderClear();
-  void RenderCopy(Texture &texture, SDL_Rect *source, SDL_Rect *detination);
+  void RenderCopy(Texture &texture, util::Rectangle source, util::Rectangle detination);
   void RenderPresent();
 
 private:
