@@ -19,8 +19,8 @@ enum class JewelType {
 
 class Jewel {
  public:
-  Jewel(JewelType type);
-  void Render(graphics::Renderer renderer);
+  Jewel(graphics::Renderer &renderer, JewelType type);
+  void Render(graphics::Renderer &renderer);
 
  private:
   JewelType type_;
