@@ -1,41 +1,28 @@
 #include "jewel.h"
 
 #include <SDL2/SDL_image.h>
+
 #include "graphics/Renderer.h"
 #include "util/Log.h"
+#include "util/Point.h"
 
 namespace bejeweled {
 
-Jewel::Jewel(graphics::Renderer &renderer, JewelType type) : type_(type), position_(0, 0), texture_(nullptr) {
+namespace {
+
+int dx[6] = {0,1,2,0,1,2};
+int dy[6] = {0,0,0,1,1,1};
+
+}
+
+Jewel::Jewel(graphics::Renderer &renderer, JewelType type, util::Point position) : type_(type), position_(position), texture_(nullptr) {
   LogSDL(texture_ = graphics::Texture(IMG_LoadTexture(renderer, "resources/sprites/sprites.bmp")));
   int x, y;
-  switch(type_) {
-    case JewelType::kRed:
-      x = 1;
-      y = 1;
-      break;
-    case JewelType::kGreen:
-      x = 1;
-      y = 2;
-      break;
-    case JewelType::kBlue:
-      x = 1;
-      y = 3;
-      break;
-    case JewelType::kPink:
-      x = 2;
-      y = 1;
-      break;
-    case JewelType::kPurple:
-      x = 2;
-      y = 2;
-      break;
-    case JewelType::kBrown:
-      x = 2;
-      y = 3;
-      break;
-  }
-  spritesheet_location_ = util::Rectangle{x * 32, y * 32};
+  auto aux = static_cast<int>(type_);
+  x = dx[aux];
+  y = dy[aux];
+  //spritesheet_location_ = util::Point(x * 32, y * 32) + Size();
+  spritesheet_location_ = Size() + util::Point(x * 32, y * 32);
 }
 
 void Jewel::Render(graphics::Renderer &renderer) {

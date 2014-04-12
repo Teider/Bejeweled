@@ -22,7 +22,7 @@ enum class JewelType {
 
 class Jewel {
  public:
-  Jewel(graphics::Renderer &renderer, JewelType type);
+  Jewel(graphics::Renderer &renderer, JewelType type, util::Point position);
   void Render(graphics::Renderer &renderer);
   util::Rectangle Size();
 
