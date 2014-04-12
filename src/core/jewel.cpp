@@ -10,8 +10,8 @@ namespace bejeweled {
 
 namespace {
 
-int dx[6] = {0,0,0,1,1,1};
-int dy[6] = {0,1,2,0,1,2};
+int dx[6] = {0,1,2,0,1,2};
+int dy[6] = {0,0,0,1,1,1};
 
 }
 
