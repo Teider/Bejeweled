@@ -13,7 +13,7 @@
 #include "graphics/Surface.h"
 #include "graphics/Texture.h"
 #include "util/Rectangle.h"
-
+#include "util/Point.h"
 
 namespace bejeweled {
 
@@ -21,7 +21,7 @@ void Game::loop() {
 	auto config = graphics::Config{};
 	auto window = graphics::Window{"bejeweled", 10, 10, 300, 300, 0};
   auto renderer = window.CreateRenderer(-1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
-  auto jewel = Jewel{renderer, JewelType::kRed};
+  auto jewel = Jewel{renderer, JewelType::kRed, util::Point(0,0)};
 	while(true) {
     renderer.RenderClear();
     jewel.Render(renderer);
