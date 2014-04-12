@@ -10,27 +10,15 @@ namespace graphics {
 
 class Config {
 public:
-  enum class Flags {
-	kInitAudio,
-	kInitVideo,
-	kInitJoystick,
-	kInitEvents,
-	kInitEverything
+  Config() {
+    SDL_Init(SDL_INIT_EVERYTHING);
   };
-
-  Config() {};
 
   virtual ~Config() {
     SDL_Quit();
   }
-
-private:
-  Config(const Config&) = delete;
-  Config& operator=(const Config&) = delete;
   
 };
-
-std::unique_ptr<Config> ConfigFactory(Config::Flags flags);
 
 } // namespace graphics
 } // namespace bejeweled

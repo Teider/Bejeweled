@@ -3,6 +3,8 @@
 
 #include <SDL2/SDL.h>
 
+#include "util/Point.h"
+
 namespace bejeweled {
 namespace util {
 
@@ -39,6 +41,10 @@ class Rectangle {
     } else {
       return &rect_;
     }
+  }
+
+  Rectangle operator+(Point p) {
+    return Rectangle{rect_.x + p.x_, rect_.y + p.y_, rect_.w, rect_.h};
   }
 
   //TODO(lucascp): Add acessors and mutators.
