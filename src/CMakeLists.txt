@@ -1,5 +1,6 @@
 include_directories(".")
 
-add_subdirectory(core)
+add_subdirectory(util)
 add_subdirectory(graphics)
+add_subdirectory(core)
 

@@ -1,6 +1,8 @@
 #ifndef BEJEWELED_UTIL_RECTANGLE_H_
 #define BEJEWELED_UTIL_RECTANGLE_H_
 
+#include <iosfwd>
+
 #include <SDL2/SDL.h>
 
 #include "util/Point.h"
@@ -10,44 +12,15 @@ namespace util {
 
 class Rectangle {
  public:
-  Rectangle() : empty_rect_(true) {
-  }
+  Rectangle();
+  Rectangle(int w, int h);
+  Rectangle(int x, int y, int w, int h);
 
-  Rectangle(int w, int h) : empty_rect_(false) {
-    rect_.x = 0;
-    rect_.y = 0;
-    rect_.w = w;
-    rect_.h = h;
-  }
+  operator const SDL_Rect*() const;
 
-  Rectangle(int x, int y, int w, int h) : empty_rect_(false)  {
-    rect_.x = x;
-    rect_.y = y;
-    rect_.w = w;
-    rect_.h = h;
-  }
+  operator SDL_Rect*(); 
 
-  operator const SDL_Rect*() const {
-    if (empty_rect_) {
-      return nullptr;
-    } else {
-      return &rect_;
-    }
-  }
-
-  operator SDL_Rect*() {
-    if (empty_rect_) {
-      return nullptr;
-    } else {
-      return &rect_;
-    }
-  }
-
-  Rectangle operator+=(const Point &rhs) {
-    rect_.x += rhs.x_;
-    rect_.y += rhs.y_;
-    return *this;
-  }
+  Rectangle operator+=(const Point &rhs); 
 
   //TODO(lucascp): Add acessors and mutators.
 
@@ -58,6 +31,7 @@ class Rectangle {
   // fields have 0 value.
   bool empty_rect_;
 
+  friend std::ostream& operator<<(std::ostream& os, const Rectangle &rect);
 };
 
 inline Rectangle operator+(Rectangle lhs, const Point &rhs) {
