@@ -16,4 +16,8 @@ void Cell::SetJewel(Jewel &&jewel) {
   jewel_.SetPosition(util::Point{x_ * 32, y_ * 32});
 }
 
+void Cell::onClick() {
+  SetJewel(Jewel());
+}
+
 } //namespace bejeweled

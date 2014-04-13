@@ -14,6 +14,7 @@ class Cell {
   Cell(int x, int y);
   void Render(graphics::Renderer &renderer);
   void SetJewel(Jewel &&jewel);
+  void onClick();
  
  private:
   //TODO(lucascp): Position should be a Point

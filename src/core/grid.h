@@ -18,6 +18,8 @@ class Grid {
   void Render(graphics::Renderer &renderer);
   void InitJewels(graphics::Renderer &renderer);
 
+  void onClick(int x, int y);
+
  private:
   int width_;
   int height_;

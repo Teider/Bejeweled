@@ -24,6 +24,15 @@ void Grid::Render(graphics::Renderer &renderer) {
   }
 }
 
+void Grid::onClick(int x, int y) {
+  x /= 32;
+  y /= 32;
+
+  if ((x < width_) && (y < height_)) {
+    grid_[x][y].onClick();
+  }
+}
+
 void Grid::InitJewels(graphics::Renderer &renderer) {
   for (int i = 0; i < width_; ++i) {
     for (int j = 0; j < height_; ++j) {
