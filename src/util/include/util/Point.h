@@ -5,6 +5,7 @@ namespace bejeweled {
 namespace util {
 
 struct Point {
+  Point() : x_(0), y_(0) {}
   Point(int x, int y) : x_(x), y_(y) {}
 
   Point& operator+=(const Point &rhs) {
