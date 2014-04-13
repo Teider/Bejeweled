@@ -12,6 +12,7 @@ class Renderer;
 }
 
 enum class JewelType {
+  kNull,
   kRed,
   kGreen,
   kBlue,
@@ -22,6 +23,7 @@ enum class JewelType {
 
 class Jewel {
  public:
+  Jewel();
   Jewel(graphics::Renderer &renderer, JewelType type, util::Point position);
   void Render(graphics::Renderer &renderer);
   util::Rectangle Size();

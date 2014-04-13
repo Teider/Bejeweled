@@ -10,10 +10,12 @@ namespace bejeweled {
 
 namespace {
 
-int dx[6] = {0,1,2,0,1,2};
-int dy[6] = {0,0,0,1,1,1};
+int dx[7] = {3,0,1,2,0,1,2};
+int dy[7] = {3,0,0,0,1,1,1};
 
 }
+
+Jewel::Jewel() : type_(JewelType::kNull), position_(util::Point(0,0)), texture_(nullptr), spritesheet_location_(0,0,0,0) {}
 
 Jewel::Jewel(graphics::Renderer &renderer, JewelType type, util::Point position) : type_(type), position_(position), texture_(nullptr) {
   LogSDL(texture_ = graphics::Texture(IMG_LoadTexture(renderer, "resources/sprites/sprites.bmp")));
@@ -26,7 +28,8 @@ Jewel::Jewel(graphics::Renderer &renderer, JewelType type, util::Point position)
 }
 
 void Jewel::Render(graphics::Renderer &renderer) {
-  renderer.RenderCopy(texture_, spritesheet_location_, Size() + position_);
+  if (type_ != JewelType::kNull)
+    renderer.RenderCopy(texture_, spritesheet_location_, Size() + position_);
 }
 
 util::Rectangle Jewel::Size() {
