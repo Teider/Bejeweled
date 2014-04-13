@@ -10,8 +10,9 @@ namespace graphics {
 
 class Texture {
 public:
-  typedef std::unique_ptr<SDL_Texture, decltype(SDL_DestroyTexture)*> SDL_TexturePtr;
+  typedef std::shared_ptr<SDL_Texture> SDL_TexturePtr;
 
+  Texture();
   Texture(SDL_Texture* ptr);
 
   operator SDL_Texture*() {
