@@ -18,7 +18,7 @@ int dy[7] = {3,0,0,0,1,1,1};
 Jewel::Jewel() : type_(JewelType::kNull), position_(util::Point(0,0)), texture_(nullptr) {}
 
 Jewel::Jewel(graphics::Renderer &renderer, JewelType type, util::Point position) : type_(type), position_(position), texture_(nullptr) {
-  LogSDL(texture_ = graphics::Texture(IMG_LoadTexture(renderer, "resources/sprites/sprites.bmp")));
+  LogSDL(texture_ = graphics::Texture(IMG_LoadTexture(renderer, "resources/sprites/sprites.png")));
   auto aux = static_cast<int>(type_);
   auto x = dx[aux];
   auto y = dy[aux];
