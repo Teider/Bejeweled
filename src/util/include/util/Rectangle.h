@@ -43,8 +43,10 @@ class Rectangle {
     }
   }
 
-  Rectangle operator+(Point p) {
-    return Rectangle{rect_.x + p.x_, rect_.y + p.y_, rect_.w, rect_.h};
+  Rectangle operator+=(const Point &rhs) {
+    rect_.x += rhs.x_;
+    rect_.y += rhs.y_;
+    return *this;
   }
 
   //TODO(lucascp): Add acessors and mutators.
@@ -57,6 +59,16 @@ class Rectangle {
   bool empty_rect_;
 
 };
+
+inline Rectangle operator+(Rectangle lhs, const Point &rhs) {
+  lhs += rhs;
+  return lhs;
+}
+
+inline Rectangle operator+(const Point &lhs, Rectangle rhs) {
+  rhs += lhs;
+  return rhs;
+}
 
 } // namespace util
 } // namespace bejeweled
