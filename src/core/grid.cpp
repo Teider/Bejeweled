@@ -17,9 +17,9 @@ Grid::Grid(int width, int height, graphics::Renderer &renderer) : width_(width),
 }
 
 void Grid::Render(graphics::Renderer &renderer) {
-  for (int i = 0; i < width_; ++i) {
-    for (int j = 0; j < height_; ++j) {
-      grid_[i][j].Render(renderer);
+  for (auto& column : grid_) {
+    for (auto& cell : column) {
+      cell.Render(renderer);
     }
   }
 }
