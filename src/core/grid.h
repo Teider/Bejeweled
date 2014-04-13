@@ -4,6 +4,7 @@
 #include <vector>
 
 #include "cell.h"
+#include "JewelFactory.h"
 
 namespace bejeweled {
 
@@ -21,6 +22,7 @@ class Grid {
   int width_;
   int height_;
   std::vector<std::vector<Cell> > grid_;
+  JewelFactory jewel_factory_;
 };
 
 } //namespace bejeweled

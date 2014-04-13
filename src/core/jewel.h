@@ -24,13 +24,16 @@ enum class JewelType {
 class Jewel {
  public:
   Jewel();
-  Jewel(graphics::Renderer &renderer, JewelType type, util::Point position);
+  Jewel(JewelType type, graphics::Texture &texture, util::Rectangle spritesheet_location);
+  void SetPosition(util::Point pos);
   void Render(graphics::Renderer &renderer);
-  util::Rectangle Size();
+  static util::Rectangle Size();
 
  private:
   JewelType type_;
   util::Point position_;
+  //TODO(lucascp): We should group the texture and location into a class graphics::Sprite.
+  // This could show useful when doing animations later, too.
   util::Rectangle spritesheet_location_;
   graphics::Texture texture_;
 };
