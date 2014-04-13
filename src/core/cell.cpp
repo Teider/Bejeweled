@@ -13,4 +13,8 @@ void Cell::SetJewel(Jewel &&jewel) {
   jewel_ = std::move(jewel);
 }
 
+void Cell::onClick() {
+  SetJewel(Jewel());
+}
+
 } //namespace bejeweled

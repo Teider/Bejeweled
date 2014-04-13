@@ -13,6 +13,7 @@ class Cell {
  public:
   void Render(graphics::Renderer &renderer);
   void SetJewel(Jewel &&jewel);
+  void onClick();
  
  private:
   Jewel jewel_;

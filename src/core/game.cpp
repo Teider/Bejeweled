@@ -21,15 +21,29 @@ void Game::loop() {
 	auto config = graphics::Config{};
 	auto window = graphics::Window{"bejeweled", 10, 10, 300, 300, 0};
   auto renderer = window.CreateRenderer(-1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
-  Grid grid(5,5, renderer);	
-  while(true) {
+  Grid grid(5,5, renderer);
+  SDL_Event lastEvent;
+  bool quit = false;
+  while(!quit) {
+    while(SDL_PollEvent(&lastEvent)) {
+      if (lastEvent.type == SDL_MOUSEBUTTONDOWN) {
+        auto x = lastEvent.button.x;
+        auto y = lastEvent.button.y;
+        grid.onClick(x, y);
+      }
+      if (lastEvent.type == SDL_KEYDOWN) {
+        quit = true;
+      }
+    }
     renderer.RenderClear();
     grid.Render(renderer);
     renderer.RenderPresent();
-		std::cout << "Press something to continue: "; 
-		std::cin.get();
-		break;
+    SDL_Delay(16);
 	}
+}
+
+void Game::onClick(int x, int y) {
+  //grid.onClick(int x, int y);
 }
 
 } // namespace bejeweled

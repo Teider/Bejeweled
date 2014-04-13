@@ -6,6 +6,9 @@ namespace bejeweled {
 class Game {
 public:
   void loop();
+
+private:
+  void onClick(int x, int y);
 };
 
 } // namespace bejeweled
