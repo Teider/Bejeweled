@@ -15,7 +15,7 @@ int dy[7] = {3,0,0,0,1,1,1};
 
 }
 
-Jewel::Jewel() : type_(JewelType::kNull), position_(util::Point(0,0)), texture_(nullptr), spritesheet_location_(0,0,0,0) {}
+Jewel::Jewel() : type_(JewelType::kNull), position_(util::Point(0,0)), texture_(nullptr) {}
 
 Jewel::Jewel(graphics::Renderer &renderer, JewelType type, util::Point position) : type_(type), position_(position), texture_(nullptr) {
   LogSDL(texture_ = graphics::Texture(IMG_LoadTexture(renderer, "resources/sprites/sprites.bmp")));
