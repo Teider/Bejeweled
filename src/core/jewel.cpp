@@ -19,17 +19,16 @@ Jewel::Jewel() : type_(JewelType::kNull), position_(util::Point(0,0)), texture_(
 
 Jewel::Jewel(graphics::Renderer &renderer, JewelType type, util::Point position) : type_(type), position_(position), texture_(nullptr) {
   LogSDL(texture_ = graphics::Texture(IMG_LoadTexture(renderer, "resources/sprites/sprites.bmp")));
-  int x, y;
   auto aux = static_cast<int>(type_);
-  x = dx[aux];
-  y = dy[aux];
-  //spritesheet_location_ = util::Point(x * 32, y * 32) + Size();
-  spritesheet_location_ = Size() + util::Point(x * 32, y * 32);
+  auto x = dx[aux];
+  auto y = dy[aux];
+  spritesheet_location_ = util::Point{x * 32, y * 32} + Size();
 }
 
 void Jewel::Render(graphics::Renderer &renderer) {
-  if (type_ != JewelType::kNull)
+  if (type_ != JewelType::kNull) {
     renderer.RenderCopy(texture_, spritesheet_location_, Size() + position_);
+  }
 }
 
 util::Rectangle Jewel::Size() {
