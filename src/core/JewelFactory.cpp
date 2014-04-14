@@ -14,7 +14,7 @@ int dy[7] = {3,0,0,0,1,1,1};
 }
 
 JewelFactory::JewelFactory(int jewel_pool_size, graphics::Renderer &renderer) : generator_(), dist_(0, jewel_pool_size), jewel_texture_() {
-  LogSDL(jewel_texture_ = graphics::Texture(IMG_LoadTexture(renderer, "resources/sprites/sprites.bmp")));
+  LogSDL(jewel_texture_ = graphics::Texture(IMG_LoadTexture(renderer, "resources/sprites/sprites.png")));
 }
 
 Jewel JewelFactory::GetNextJewel() {
