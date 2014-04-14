@@ -13,7 +13,7 @@ int dx[7] = {3,0,1,2,0,1,2};
 int dy[7] = {3,0,0,0,1,1,1};
 }
 
-JewelFactory::JewelFactory(int jewel_pool_size, graphics::Renderer &renderer) : generator_(), dist_(0, jewel_pool_size), jewel_texture_() {
+JewelFactory::JewelFactory(int jewel_pool_size, graphics::Renderer &renderer) : generator_(std::random_device()()), dist_(0, jewel_pool_size), jewel_texture_() {
   LogSDL(jewel_texture_ = graphics::Texture(IMG_LoadTexture(renderer, "resources/sprites/sprites.png")));
 }
 
