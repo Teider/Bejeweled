@@ -1,5 +1,6 @@
 #include "graphics/Renderer.h"
 
+#include "graphics/Sprite.h"
 #include "graphics/Surface.h"
 #include "graphics/Texture.h"
 #include "util/Log.h"
@@ -27,6 +28,10 @@ void Renderer::RenderCopy(Texture &texture, util::Rectangle source, util::Rectan
 
 void Renderer::RenderPresent() {
   LogSDL(SDL_RenderPresent(*this));
+}
+
+void Renderer::RenderSprite(Sprite sprite, util::Rectangle destination) {
+  RenderCopy(sprite.texture_, sprite.position_, destination);
 }
 
 

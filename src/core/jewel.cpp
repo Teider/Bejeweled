@@ -5,9 +5,9 @@
 
 namespace bejeweled {
 
-Jewel::Jewel() : type_(JewelType::kNull), position_(util::Point(0,0)), spritesheet_location_(0,0,0,0), texture_(nullptr) {}
+Jewel::Jewel() : type_(JewelType::kNull), position_(util::Point(0,0)) {}
 
-Jewel::Jewel(JewelType type, graphics::Texture &texture, util::Rectangle spritesheet_location) : type_(type), spritesheet_location_(spritesheet_location), texture_(texture) {}
+Jewel::Jewel(JewelType type, graphics::Sprite sprite) : type_(type), sprite_(sprite) {}
 
 void Jewel::SetPosition(util::Point pos) {
   position_ = pos;
@@ -15,7 +15,7 @@ void Jewel::SetPosition(util::Point pos) {
 
 void Jewel::Render(graphics::Renderer &renderer) {
   if (type_ != JewelType::kNull) {
-    renderer.RenderCopy(texture_, spritesheet_location_, Size() + position_);
+    renderer.RenderSprite(sprite_, Size() + position_);
   }
 }
 

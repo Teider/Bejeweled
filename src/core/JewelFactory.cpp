@@ -13,16 +13,17 @@ int dx[7] = {3,0,1,2,0,1,2};
 int dy[7] = {3,0,0,0,1,1,1};
 }
 
-JewelFactory::JewelFactory(int jewel_pool_size, graphics::Renderer &renderer) : generator_(std::random_device()()), dist_(0, jewel_pool_size), jewel_texture_() {
-  LogSDL(jewel_texture_ = graphics::Texture(IMG_LoadTexture(renderer, "resources/sprites/sprites.png")));
+JewelFactory::JewelFactory(int jewel_pool_size, graphics::Renderer &renderer) : generator_(std::random_device()()), dist_(0, jewel_pool_size - 1) {
+  graphics::Texture jewel_texture;
+  LogSDL(jewel_texture = graphics::Texture(IMG_LoadTexture(renderer, "resources/sprites/sprites.png")));
+  for (auto i = 1; i <= jewel_pool_size; i++) {
+    jewel_sprites_[static_cast<JewelType>(i)] = graphics::Sprite{jewel_texture, util::Point{dx[i] * 32, dy[i] * 32} + Jewel::Size()};
+  }
 }
 
 Jewel JewelFactory::GetNextJewel() {
-  auto aux = dist_(generator_) + 1;
-  auto x = dx[aux];
-  auto y = dy[aux];
-  auto spritesheet_location = util::Point{x * 32, y * 32} + Jewel::Size();
-  return Jewel(static_cast<JewelType>(aux), jewel_texture_, spritesheet_location);
+  auto jewel_type = static_cast<JewelType>(dist_(generator_) + 1);
+  return Jewel{jewel_type, jewel_sprites_[jewel_type]};
 }
 
 

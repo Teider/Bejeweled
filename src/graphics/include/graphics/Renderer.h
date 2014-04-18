@@ -12,9 +12,9 @@ class Rectangle;
 }
 
 namespace graphics {
-
 class Surface;
 class Texture;
+class Sprite;
 
 class Renderer {
 public:
@@ -22,10 +22,13 @@ public:
 
   Renderer(SDL_Window *win, int index, uint32_t flags);
 
+  // SDL Wrappers
   Texture CreateTextureFromSurface(Surface &surface);
   void RenderClear();
   void RenderCopy(Texture &texture, util::Rectangle source, util::Rectangle detination);
   void RenderPresent();
+
+  void RenderSprite(Sprite sprite, util::Rectangle destination);
 
   operator SDL_Renderer*() {
     return ptr_.get();
